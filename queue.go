@@ -1,3 +1,40 @@
+/*
+queue implements a first-in-first-out queue.
+
+The API is purposefully very simple. We queue items with Put() and retrive them
+with Next() or NextWait()
+
+The empty value of Queue is a valid queue with no expiration.
+
+	var q Queue
+	q.Put("foo")
+	q.Put("bar")
+	v, err := q.Next()
+
+Expiration
+
+The queue can be optionally configured to expire items after a given period of
+time. An expirable queue will expire items on demand when accessed.
+
+Here is a trivial example showing how to create and use a queue with 1s
+expiration.
+
+    q := queue.New(queue.WithTTL(time.Second))
+
+    // add a value
+    q.Put("foo")
+    time.Sleep(time.Second)
+    q.Put("bar")
+
+    // not that "foo" will have been expired by the previous call, so "bar" is
+    // the first non-expired item and that's what will be returned by Next()
+    val, err := q.Next()
+    if err != nil {
+        log.Fatal(err)
+    }
+    log.Println("val", val)
+
+*/
 package queue
 
 import (
