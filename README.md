@@ -4,6 +4,44 @@
 
 Queue implements a simple FIFO structure in Go with optional expiration.
 
+Simple use case:
+
+```go
+var q queue.Queue
+
+q.Put("foo")
+q.Put("bar")
+val, _ := q.Next()
+// val is "foo"
+val, _ = q.Next()
+// val is "bar"
+var, err := q.Next()
+// err as no items available
+```
+
+You can also wait for an item to be available --
+
+```go
+val, err := q.NextWait(30 * time.Second)
+if err != nil {
+    log.Fatal("timeout waiting for a new item to be queued")
+}
+log.Println("val", val)
+```
+
+Optionally, you can set the queue to expire items, which is useful to prevent a
+queue from growing indefinitely --
+
+```go
+// create a queue with a TTL of 1s
+q := queue.New(queue.WithTTL(time.Second))
+q.Put("foo")
+time.Sleep(time.Second)
+q.Put("bar")
+val, _ := q.Next()
+// val == "bar", since "foo" was expired and removed from the queue.
+```
+
 ## License
 
 Copyright (c) 2018 Roberto Selbach Teixeira  <r@rst.sh>
