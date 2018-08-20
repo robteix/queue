@@ -1,6 +1,6 @@
 # Queue
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/rselbach/queue)](https://goreportcard.com/report/github.com/rselbach/queue)  [![Documentation](https://godoc.org/github.com/rselbach/queue?status.svg)](http://godoc.org/github.com/rselbach/queue) [![GitHub issues](https://img.shields.io/github/issues/rselbach/queue.svg)](https://github.com/rselbach/queue/issues) [![license](https://img.shields.io/github/license/rselbach/queue.svg?maxAge=2592000)](https://github.com/rselbach/queue/LICENSE)
+[![Go Report Card](https://goreportcard.com/badge/github.com/robteix/queue)](https://goreportcard.com/report/github.com/robteix/queue)  [![Documentation](https://godoc.org/github.com/robteix/queue?status.svg)](http://godoc.org/github.com/robteix/queue) [![GitHub issues](https://img.shields.io/github/issues/robteix/queue.svg)](https://github.com/robteix/queue/issues) [![license](https://img.shields.io/github/license/robteix/queue.svg?maxAge=2592000)](https://github.com/robteix/queue/LICENSE)
 
 Queue implements a simple FIFO structure in Go with optional expiration.
 
